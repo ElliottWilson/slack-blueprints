@@ -1,2 +1,0 @@
-slackclient==2.7.3
-pandas==1.2.3
