@@ -555,8 +555,9 @@ def main():
                             message))
 
         else:
-            names_to_tag = create_name_tags(user_id_list)
-            message = names_to_tag + message
+            # names_to_tag = create_name_tags(user_id_list)
+            # message = names_to_tag + message
+            message
 
             if file_upload == 'yes':
                 file_to_upload = determine_file_to_upload(
