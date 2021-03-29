@@ -497,7 +497,8 @@ def should_message_be_sent(
 def get_varibles_from_file(csv_file): 
     df = pd.read_csv(csv_file)
     df[['COMPANY_OWNER','ADMIN_URL','PARTNER_NAME']]
-    url_list_admin_url = df['ADMIN_URL']
+    url_list_admin= df['ADMIN_URL']
+    url_list_admin_url = '<'+ url_list_admin + '>'
     url_list_partner = df['PARTNER_NAME']
     url_list_company_owner = df['COMPANY_OWNER'].fillna('No Account owner')
     url_list_str = '\n'.join(url_list_partner + ': ' + url_list_admin_url)
@@ -555,8 +556,9 @@ def main():
                             message))
 
         else:
-            names_to_tag = create_name_tags(user_id_list)
-            message = names_to_tag + message
+            # names_to_tag = create_name_tags(user_id_list)
+            # message = names_to_tag + message
+            message
 
             if file_upload == 'yes':
                 file_to_upload = determine_file_to_upload(
