@@ -496,11 +496,11 @@ def should_message_be_sent(
 
 def get_varibles_from_file(csv_file): 
     df = pd.read_csv(csv_file)
-    df[['COMPANY_OWNER','ADMIN_URL','PARTNER_NAME']].drop_duplicates()
-    url_list_admin= df['ADMIN_URL']
+    df_dedup = df[['COMPANY_OWNER','ADMIN_URL','PARTNER_NAME']].drop_duplicates()
+    url_list_admin= df_dedup['ADMIN_URL']
     url_list_admin_url = '<'+ url_list_admin + '>'
-    url_list_partner = df['PARTNER_NAME']
-    url_list_company_owner = df['COMPANY_OWNER'].fillna('No Account owner')
+    url_list_partner = df_dedup['PARTNER_NAME']
+    url_list_company_owner = df_dedup['COMPANY_OWNER'].fillna('No Account owner')
     url_list_str = '\n'.join(url_list_partner + ': ' + url_list_admin_url)
     return url_list_str
 
