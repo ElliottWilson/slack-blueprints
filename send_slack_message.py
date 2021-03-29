@@ -496,7 +496,7 @@ def should_message_be_sent(
 
 def get_varibles_from_file(csv_file): 
     df = pd.read_csv(csv_file)
-    df[['COMPANY_OWNER','ADMIN_URL','PARTNER_NAME']]
+    df[['COMPANY_OWNER','ADMIN_URL','PARTNER_NAME']].drop_duplicates()
     url_list_admin_url = df['ADMIN_URL']
     url_list_partner = df['PARTNER_NAME']
     url_list_company_owner = df['COMPANY_OWNER'].fillna('No Account owner')
